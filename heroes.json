@@ -1,0 +1,49 @@
+{
+  "heroes": [
+    {
+      "id": "hero_ember",
+      "name": "Ember, Flame Adventurer",
+      "rarity": 5,
+      "color": "red",
+      "hp": 1500,
+      "atk": 300,
+      "skill": "flame_surge"
+    },
+    {
+      "id": "hero_starl",
+      "name": "Starl, Blade of Dawn",
+      "rarity": 5,
+      "color": "red",
+      "hp": 1700,
+      "atk": 320,
+      "skill": "cleave"
+    },
+    {
+      "id": "hero_hestia_style",
+      "name": "Hestelle, Faithful Guide",
+      "rarity": 4,
+      "color": "green",
+      "hp": 1100,
+      "atk": 120,
+      "skill": "blessing"
+    },
+    {
+      "id": "hero_weld",
+      "name": "Weld, Tinkerer",
+      "rarity": 4,
+      "color": "blue",
+      "hp": 1000,
+      "atk": 140,
+      "skill": "repair"
+    },
+    {
+      "id": "hero_lyra",
+      "name": "Lyra, Swift Arrow",
+      "rarity": 3,
+      "color": "yellow",
+      "hp": 900,
+      "atk": 160,
+      "skill": "quickshot"
+    }
+  ]
+}

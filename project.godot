@@ -1,0 +1,9 @@
+[gd_project]
+config_version=4
+
+[application]
+config/name="DanMachiLikeGodot"
+run/main_scene="res://scenes/Main.tscn"
+
+[rendering]
+quality/driver/driver_name="GLES3"

@@ -1,0 +1,29 @@
+{
+  "gacha_pool": [
+    {
+      "hero_id": "hero_ember",
+      "rate": 1.0,
+      "rarity": 5
+    },
+    {
+      "hero_id": "hero_starl",
+      "rate": 0.6,
+      "rarity": 5
+    },
+    {
+      "hero_id": "hero_hestia_style",
+      "rate": 2.0,
+      "rarity": 4
+    },
+    {
+      "hero_id": "hero_weld",
+      "rate": 3.0,
+      "rarity": 4
+    },
+    {
+      "hero_id": "hero_lyra",
+      "rate": 5.0,
+      "rarity": 3
+    }
+  ]
+}
