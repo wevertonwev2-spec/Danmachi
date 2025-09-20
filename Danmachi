@@ -1,0 +1,55 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download Godot Headless
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/4.2.2/Godot_v4.2.2-stable_linux.x86_64.zip -O godot.zip
+          unzip godot.zip -d godot
+          mv godot/Godot_v4.2.2-stable_linux.x86_64 godot/godot
+          chmod +x godot/godot
+
+      - name: Download Export Templates
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/4.2.2/Godot_v4.2.2-stable_export_templates.tpz -O templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/4.2.2.stable
+          unzip templates.tpz -d ~/.local/share/godot/export_templates/4.2.2.stable
+
+      - name: Create export preset
+        run: |
+          mkdir -p build
+          cat > export_presets.cfg <<'EOF'
+          [preset.0]
+          name="Android Debug"
+          platform="Android"
+          export_path="build/danmachi_like.apk"
+          custom_template/debug=""
+          custom_template/release=""
+          [preset.0.options]
+          gradle_build/use_gradle_build=false
+          APK/architectures=arm64-v8a,armeabi-v7a
+          package/name="com.example.danmachilike"
+          version/code=1
+          version/name="1.0.0"
+          EOF
+
+      - name: Export APK
+        run: |
+          ./godot/godot --headless --export-debug "Android Debug" build/danmachi_like.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: danmachi_like
+          path: build/danmachi_like.apk
